@@ -1,3 +1,3 @@
 export default function AllProductsPage() {
-  return <h1>Tất cả sản phẩm </h1>;
+  return <h1>Tất cả sản phẩm</h1>;
 }
