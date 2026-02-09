@@ -110,19 +110,30 @@ export default function HeroBannerSlider() {
     //     </div>
     //   );
     // }
-    if (slide.type === 'image') {
-      return (
-        <div className="relative w-full aspect-16/5 bg-green-700 rounded-3xl overflow-hidden">
-          <Image
-            src={slide.content.image}
-            alt="slide image"
-            fill
-            priority
-            className="object-contain"
-          />
-        </div>
-      );
-    }
+if (slide.type === 'image') {
+  return (
+    <div
+      className="
+        relative w-full
+        min-h-105 md:aspect-16/5
+        bg-green-700
+        md:rounded-3xl
+        overflow-hidden
+        flex items-center justify-center
+      "
+    >
+      <Image
+        src={slide.content.image}
+        alt="slide image"
+        fill
+        priority
+        className="
+          object-contain
+        "
+      />
+    </div>
+  );
+}
 
     return null;
   };
@@ -168,8 +179,8 @@ export default function HeroBannerSlider() {
               key={index}
               onClick={() => goToSlide(index)}
               className={`transition-all rounded-full ${index === currentSlide
-                ? 'bg-white w-8 h-3'
-                : 'bg-white/50 w-3 h-3 hover:bg-white/70'
+                ? 'bg-white w-6 h-2 md:w-8 md:h-3'
+                : 'bg-white/50 w-2 h-2 md:w-3 md:h-3 hover:bg-white/70'
                 }`}
               aria-label={`Go to slide ${index + 1}`}
             />

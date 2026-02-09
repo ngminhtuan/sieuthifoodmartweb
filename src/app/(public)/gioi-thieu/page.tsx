@@ -250,7 +250,7 @@ export default function AboutPage() {
             </div>
             <h3 className="text-xl font-bold mb-2 text-gray-900">Email</h3>
             <p className="text-gray-600 mb-2">Gửi email cho chúng tôi</p>
-            <a href="mailto:info@foodmart.vn" className="text-green-600 font-bold">info@foodmart.vn</a>
+            <a href="mailto:info@foodmart.vn" className="text-green-600 font-bold">info@sieuthifoodmart.com</a>
           </div>
 
           <Link href="/cua-hang" className="bg-linear-to-br from-orange-50 to-red-50 rounded-2xl p-8 text-center">

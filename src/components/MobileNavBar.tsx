@@ -1,17 +1,19 @@
-'use client'
+'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { AiOutlineHome } from 'react-icons/ai';
 import { BiSolidOffer } from 'react-icons/bi';
 import { IoStorefrontOutline } from 'react-icons/io5';
 import { FaRegUser } from 'react-icons/fa';
-
-import { useUIStore } from "@/store/ui.store";
+import { useUIStore } from '@/store/ui.store';
 
 export default function MobileNavBar() {
+  const router = useRouter();
   const toggleCategory = useUIStore((s) => s.toggleCategory);
-  const [activeTab, setActiveTab] = useState('products');
   const isCategoryOpen = useUIStore((s) => s.isCategoryOpen);
+
+  const [activeTab, setActiveTab] = useState('products');
 
   const navItems = [
     { id: 'products', label: 'Trang chủ', icon: AiOutlineHome },
@@ -20,8 +22,37 @@ export default function MobileNavBar() {
     { id: 'profile', label: 'Cá nhân', icon: FaRegUser }
   ];
 
+  const handleClick = (itemId: string) => {
+    setActiveTab(itemId);
+
+    switch (itemId) {
+      case 'category':
+        toggleCategory();
+        break;
+
+      case 'store':
+        router.push('/cua-hang');
+        break;
+
+      case 'profile':
+        window.open(
+          'https://thanhvien.sieuthifoodmart.com/',
+          '_blank'
+        );
+        break;
+
+      default:
+        router.push('/');
+        break;
+    }
+  };
+
   return (
-    <nav className={`block lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-30 ${isCategoryOpen ? "hidden" : "fixed bottom-0"}`}>
+    <nav
+      className={`block lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-30 ${
+        isCategoryOpen ? 'hidden' : ''
+      }`}
+    >
       <div className="flex justify-around items-center h-16 max-w-screen-sm mx-auto">
         {navItems.map((item) => {
           const Icon = item.icon;
@@ -30,32 +61,29 @@ export default function MobileNavBar() {
           return (
             <button
               key={item.id}
-              onClick={() => {
-                setActiveTab(item.id);
-
-                if (item.id === 'category') {
-                  toggleCategory();
-                }
-              }}
-              className={`flex flex-col items-center justify-center flex-1 h-full transition-colors ${isActive
+              onClick={() => handleClick(item.id)}
+              className={`relative flex flex-col items-center justify-center flex-1 h-full transition-colors ${
+                isActive
                   ? 'text-green-600'
                   : 'text-gray-500 hover:text-gray-700'
-                }`}
+              }`}
             >
-              <Icon
-                size={24}
-                className="mb-1"
-              />
-              <span className={`text-xs ${isActive ? 'font-semibold' : 'font-normal'}`}>
+              <Icon size={24} className="mb-1" />
+              <span
+                className={`text-xs ${
+                  isActive ? 'font-semibold' : 'font-normal'
+                }`}
+              >
                 {item.label}
               </span>
+
               {isActive && (
-                <div className="absolute bottom-0 w-12 h-1 bg-green-600 rounded-t-full"></div>
+                <div className="absolute bottom-0 w-12 h-1 bg-green-600 rounded-t-full" />
               )}
             </button>
           );
         })}
       </div>
     </nav>
-  )
+  );
 }
