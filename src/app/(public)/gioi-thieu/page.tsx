@@ -3,9 +3,9 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { 
-  FaShoppingCart, 
-  FaSearch, 
+import {
+  FaShoppingCart,
+  FaSearch,
   FaUser,
   FaLeaf,
   FaTruck,
@@ -31,21 +31,21 @@ export default function AboutPage() {
   ];
 
   const features = [
-    { 
-      icon: <FaLeaf />, 
-      title: '100% Tươi Sạch', 
+    {
+      icon: <FaLeaf />,
+      title: '100% Tươi Sạch',
       description: 'Cam kết mang đến sản phẩm tươi ngon, an toàn cho sức khỏe gia đình bạn',
       color: 'from-green-500 to-emerald-600'
     },
-    { 
-      icon: <FaShieldAlt />, 
-      title: 'Chất Lượng Đảm Bảo', 
+    {
+      icon: <FaShieldAlt />,
+      title: 'Chất Lượng Đảm Bảo',
       description: 'Kiểm tra nghiêm ngặt, đổi trả trong 24h nếu có bất kỳ vấn đề gì',
       color: 'from-purple-500 to-pink-600'
     },
-    { 
-      icon: <FaAward />, 
-      title: 'Giá Tốt Nhất', 
+    {
+      icon: <FaAward />,
+      title: 'Giá Tốt Nhất',
       description: 'Cam kết giá cạnh tranh nhất thị trường, nhiều chương trình khuyến mãi',
       color: 'from-orange-500 to-red-600'
     }
@@ -99,7 +99,7 @@ export default function AboutPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="max-w-7xl mx-auto px-4 -mt-16 relative z-20">
+      <section className="max-w-7xl mx-auto p-4 -mt-16 relative z-20">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           {stats.map((stat, idx) => (
             <div key={idx} className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-2">
@@ -142,7 +142,7 @@ export default function AboutPage() {
             <div className="aspect-square bg-linear-to-br from-green-400 to-emerald-600 rounded-3xl shadow-2xl flex items-center justify-center text-white text-4xl font-bold">
               Hình ảnh siêu thị
             </div>
-            <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-linear-to-r from-orange-400 to-red-500 rounded-3xl -z-10"></div>
+            {/* <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-linear-to-r from-orange-400 to-red-500 rounded-3xl -z-10"></div> */}
           </div>
         </div>
       </section>
@@ -162,7 +162,7 @@ export default function AboutPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, idx) => (
-              <div key={idx} className="bg-white rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 group hover:-translate-y-2">
+              <div key={idx} className="flex flex-col items-center md:block bg-white rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 group hover:-translate-y-2">
                 <div className={`w-16 h-16 bg-linear-to-r ${feature.color} rounded-2xl flex items-center justify-center text-white text-3xl mb-6 group-hover:scale-110 transition-transform`}>
                   {feature.icon}
                 </div>
@@ -211,9 +211,15 @@ export default function AboutPage() {
             Đăng ký ngay hôm nay để nhận ưu đãi đặc biệt và trải nghiệm mua sắm tuyệt vời
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-red-600 px-8 py-4 rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition-all">
-              Đăng ký ngay
-            </button>
+            <a
+              href="https://thanhvien.sieuthifoodmart.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="bg-white text-red-600 px-8 py-4 rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition-all">
+                Đăng ký ngay
+              </button>
+            </a>
             <button className="bg-white/20 backdrop-blur-sm border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/30 transition-all">
               Liên hệ chúng tôi
             </button>
