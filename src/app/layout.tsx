@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     siteName: 'Foodmart',
   },
   icons: {
-    icon: '/favicon.ico',
+    icon: '/iconfm.jfif',
   },
 };
 

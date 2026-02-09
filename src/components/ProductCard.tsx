@@ -89,6 +89,10 @@ export default function SimpleProductCard({
 
   const currentBadge = badge ? badgeConfig[badge] : null;
 
+  function formatVND(number: Number) {
+        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+
   return (
     <div className="bg-white rounded-2xl p-4 shadow-sm hover:shadow-lg transition-all duration-300 
                 w-full relative flex flex-col h-full">
@@ -132,7 +136,7 @@ export default function SimpleProductCard({
         {/* Price */}
         <div className="flex items-end justify-center mb-4 mt-auto">
           <span className=" font-bold text-gray-900">
-            {price}VND
+            {formatVND(price)}VND
           </span>
         </div>
       </div>
@@ -305,9 +309,9 @@ export function SimpleProductGrid() {
             <h1 className="text-4xl font-bold mb-2 text-gray-900">
               Sản phẩm nổi bật / bán chạy
             </h1>
-            <a href="#" className="text-green-600 font-semibold hover:underline flex items-center gap-2">
+            {/* <a href="#" className="text-green-600 font-semibold hover:underline flex items-center gap-2">
               See more →
-            </a>
+            </a> */}
           </div>
         </div>
 

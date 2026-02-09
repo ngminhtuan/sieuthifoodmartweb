@@ -278,7 +278,7 @@ export default async function ArticlePage({ params }: { params: { slug: string }
         </article>
 
         {/* Related Articles */}
-        <section className="bg-white rounded-lg shadow-sm p-6">
+        {/* <section className="bg-white rounded-lg shadow-sm p-6">
           <h2 className="text-xl font-bold text-gray-900 mb-4">Bài viết liên quan</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {article.relatedArticles.map((related) => (
@@ -304,7 +304,7 @@ export default async function ArticlePage({ params }: { params: { slug: string }
               </Link>
             ))}
           </div>
-        </section>
+        </section> */}
       </div>
     </div>
   );

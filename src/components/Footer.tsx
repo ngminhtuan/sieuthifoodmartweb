@@ -63,8 +63,8 @@ export default function Footer() {
               <h3 className="font-bold mb-4">{section}</h3>
               <ul className="flex flex-col space-y-2 text-sm text-gray-400">
                 <Link href={"/gioi-thieu"} className="hover:text-white transition-colors" >Giới thiệu</Link>
-                <Link href={"/"} className="hover:text-white transition-colors">Tuyển dụng</Link>
-                <Link href={"/"} className="hover:text-white transition-colors">Danh sách cửa hàng</Link>
+                {/* <Link href={"/"} className="hover:text-white transition-colors">Tuyển dụng</Link> */}
+                <Link href={"/cua-hang"} className="hover:text-white transition-colors">Danh sách cửa hàng</Link>
               </ul>
             </div>
           ))}
@@ -72,8 +72,8 @@ export default function Footer() {
             <h3 className="font-bold mb-4">Hỗ trợ</h3>
             <ul className="flex flex-col space-y-2 text-sm text-gray-400">
               <Link href={"/bai-viet"} className="hover:text-white transition-colors">Blog</Link>
-              <Link href={"/"} className="hover:text-white transition-colors">Email</Link>
-              <Link href={"/"} className="hover:text-white transition-colors">Chính sách mua hàng</Link>
+              {/* <Link href={"/"} className="hover:text-white transition-colors">Email</Link> */}
+              {/* <Link href={"/"} className="hover:text-white transition-colors">Chính sách mua hàng</Link> */}
             </ul>
             <div className="flex gap-4">
 
@@ -85,7 +85,17 @@ export default function Footer() {
             <div className="flex gap-4">
               {[
                 { icon: <FaFacebook />, color: 'bg-blue-600', link: 'https://www.facebook.com/sieuthifoodmartsaigon' },
-                { icon: <FaInstagram />, color: 'bg-red-600', link: 'https://www.facebook.com/sieuthifoodmartsaigon' },
+                {
+                  icon: (
+                    <Image
+                      src="/icons8-zalo.svg"
+                      alt="Zalo"
+                      width={30}
+                      height={30}
+                    />
+                  ),
+                  color: 'bg-blue-500', link: 'https://zalo.me/0879361361'
+                },
                 { icon: <FaYoutube />, color: 'bg-green-600', link: 'https://www.youtube.com/@SieuthiFoodmart' }
               ].map((social, idx) => (
                 <a
@@ -110,10 +120,10 @@ export default function Footer() {
           <div className="text-sm text-gray-400 text-center md:text-left">
             © 2026 Foodmart. All rights reserved.
           </div>
-          <div className="flex items-center gap-6 text-sm text-gray-400">
+          {/* <div className="flex items-center gap-6 text-sm text-gray-400">
             <Link href={'/'} className="hover:text-white transition-colors">Chính sách bảo mật</Link>
             <Link href={"/"} className="hover:text-white transition-colors">Điều khoản sử dụng</Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

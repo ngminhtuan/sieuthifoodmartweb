@@ -144,7 +144,7 @@ export default function ProductDetailClient() {
                             <h1 className="text-3xl md:text-4xl font-bold mb-2 text-gray-900">
                                 {product.productName}
                             </h1>
-                            <p className="text-xl text-gray-600 mb-4">({product.subtitle})</p>
+                            <p className="text-xl text-gray-600 mb-4">({product.subtitle ? product.subtitle : product.productName})</p>
 
                             {/* Rating */}
                             {/* <div className="flex items-center gap-3 mb-6">
@@ -162,7 +162,7 @@ export default function ProductDetailClient() {
                             </div>
 
                             {/* Product Meta */}
-                            <div className="bg-gray-50 rounded-2xl p-6 mb-6 space-y-3">
+                            {/* <div className="bg-gray-50 rounded-2xl p-6 mb-6 space-y-3">
                                 <div className="flex items-center justify-between">
                                     <span className="text-gray-600 font-medium">SKU:</span>
                                     <span className="font-semibold text-gray-900">{product1.sku}</span>
@@ -181,13 +181,13 @@ export default function ProductDetailClient() {
                                     <span className="text-gray-600 font-medium">Khối lượng:</span>
                                     <span className="font-semibold text-gray-900">{product1.weight}</span>
                                 </div>
-                            </div>
+                            </div> */}
 
                             {/* Quantity Selector */}
                             <div className="mb-6">
                                 <label className="block text-gray-700 font-semibold mb-3">Số lượng:</label>
                                 <div className="flex items-center gap-4">
-                                    <div className="flex items-center border-2 border-gray-300 rounded-xl overflow-hidden">
+                                    {/* <div className="flex items-center border-2 border-gray-300 rounded-xl overflow-hidden">
                                         <button
                                             onClick={() => setQuantity(Math.max(1, quantity - 1))}
                                             className="w-12 h-12 flex items-center justify-center hover:bg-gray-100 transition-all"
@@ -206,13 +206,13 @@ export default function ProductDetailClient() {
                                         >
                                             <FaPlus />
                                         </button>
-                                    </div>
+                                    </div> */}
                                     <span className="text-gray-600">Tồn kho: <strong>50</strong> sản phẩm</span>
                                 </div>
                             </div>
 
                             {/* Action Buttons */}
-                            <div className="flex gap-3 mb-6">
+                            {/* <div className="flex gap-3 mb-6">
                                 <button className="flex-1 bg-linear-to-r from-green-600 to-emerald-600 text-white py-4 rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition-all flex items-center justify-center gap-2">
                                     <FaShoppingCart />
                                     Thêm vào giỏ hàng
@@ -220,10 +220,10 @@ export default function ProductDetailClient() {
                                 <button className="w-14 h-14 bg-gray-100 rounded-xl flex items-center justify-center hover:bg-gray-200 transition-all">
                                     <FaShareAlt className="text-gray-700" />
                                 </button>
-                            </div>
+                            </div> */}
 
                             {/* Share */}
-                            <div>
+                            {/* <div>
                                 <p className="text-gray-600 font-semibold mb-3">Chia sẻ:</p>
                                 <div className="flex gap-2">
                                     {[
@@ -240,7 +240,7 @@ export default function ProductDetailClient() {
                                         </button>
                                     ))}
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
@@ -344,9 +344,9 @@ export default function ProductDetailClient() {
                 <div>
                     <div className="flex items-center justify-between mb-6">
                         <h2 className="text-3xl font-bold text-gray-900">Sản phẩm liên quan</h2>
-                        <Link href="/category/beverages" className="text-green-600 font-semibold hover:underline">
+                        {/* <Link href="/category/beverages" className="text-green-600 font-semibold hover:underline">
                             Xem tất cả →
-                        </Link>
+                        </Link> */}
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">

@@ -87,12 +87,17 @@ export default function AboutPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-green-600 px-8 py-4 rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition-all">
-                Mua sắm ngay
-              </button>
-              <button className="bg-white/20 backdrop-blur-sm border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/30 transition-all">
+              <Link
+                href="/"
+                rel="noopener noreferrer"
+              >
+                <button className="bg-white text-green-600 px-8 py-4 rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition-all">
+                  Mua sắm ngay
+                </button>
+              </Link>
+              {/* <button className="bg-white/20 backdrop-blur-sm border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/30 transition-all">
                 Tìm hiểu thêm
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
@@ -131,16 +136,16 @@ export default function AboutPage() {
             <p className="text-gray-700 leading-relaxed mb-6 text-lg">
               Từ một cửa hàng nhỏ, chúng tôi đã phát triển thành hệ thống siêu thị có mặt tại nhiều tỉnh thành, phục vụ hơn 50,000 khách hàng mỗi ngày với hơn 10,000 sản phẩm đa dạng.
             </p>
-            <div className="flex gap-4">
+            {/* <div className="flex gap-4">
               <button className="bg-linear-to-r from-green-600 to-emerald-600 text-white px-8 py-3 rounded-xl font-bold hover:shadow-lg transition-all">
                 Tìm hiểu thêm
               </button>
-            </div>
+            </div> */}
           </div>
 
           <div className="relative">
             <div className="aspect-square bg-linear-to-br from-green-400 to-emerald-600 rounded-3xl shadow-2xl flex items-center justify-center text-white text-4xl font-bold">
-              Hình ảnh siêu thị
+              <img src={"/companyoverview.jfif"} alt=''/>
             </div>
             {/* <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-linear-to-r from-orange-400 to-red-500 rounded-3xl -z-10"></div> */}
           </div>
@@ -220,9 +225,9 @@ export default function AboutPage() {
                 Đăng ký ngay
               </button>
             </a>
-            <button className="bg-white/20 backdrop-blur-sm border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/30 transition-all">
+            {/* <button className="bg-white/20 backdrop-blur-sm border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/30 transition-all">
               Liên hệ chúng tôi
-            </button>
+            </button> */}
           </div>
         </div>
       </section>
@@ -236,7 +241,7 @@ export default function AboutPage() {
             </div>
             <h3 className="text-xl font-bold mb-2 text-gray-900">Hotline</h3>
             <p className="text-gray-600 mb-2">Liên hệ ngay</p>
-            <a href="tel:02822188999" className="text-blue-600 font-bold text-xl">028 22 188 999</a>
+            <a href="tel:02822188999" className="text-blue-600 font-bold text-xl">0879361361</a>
           </div>
 
           <div className="bg-linear-to-br from-green-50 to-emerald-50 rounded-2xl p-8 text-center">
@@ -248,14 +253,14 @@ export default function AboutPage() {
             <a href="mailto:info@foodmart.vn" className="text-green-600 font-bold">info@foodmart.vn</a>
           </div>
 
-          <div className="bg-linear-to-br from-orange-50 to-red-50 rounded-2xl p-8 text-center">
+          <Link href="/cua-hang" className="bg-linear-to-br from-orange-50 to-red-50 rounded-2xl p-8 text-center">
             <div className="w-16 h-16 bg-linear-to-r from-orange-600 to-red-600 rounded-full flex items-center justify-center text-white text-2xl mb-4 mx-auto">
               <FaMapMarkerAlt />
             </div>
             <h3 className="text-xl font-bold mb-2 text-gray-900">Địa chỉ</h3>
             <p className="text-gray-600 mb-2">Ghé thăm chúng tôi</p>
             <p className="text-orange-600 font-semibold">TP. Hồ Chí Minh</p>
-          </div>
+          </Link>
         </div>
       </section>
     </div>
