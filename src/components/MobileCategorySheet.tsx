@@ -37,13 +37,22 @@ export default function MobileCategorySheet() {
           const isOpen = openLv1 === lv1.id;
 
           return (
-            <div key={lv1.id ?? lv1.name} className="border rounded-xl">
+            <div
+              key={lv1.id ?? lv1.name}
+              className={`
+    border rounded-xl overflow-hidden
+    ${isOpen ? "bg-green-100" : "bg-green-50"}
+  `}
+            >
               <button
                 onClick={() => {
                   setOpenLv1(isOpen ? null : lv1.id);
                   setOpenLv2(null);
                 }}
-                className="w-full flex justify-between items-center p-4 font-medium"
+                className="
+      w-full flex justify-between items-center
+      p-4 font-bold text-green-800
+    "
               >
                 <div className="flex items-center gap-2">
                   <span>{lv1.icon}</span>
@@ -53,35 +62,44 @@ export default function MobileCategorySheet() {
               </button>
 
               {isOpen && lv1.children && (
-                <div className="px-4 pb-4 space-y-3">
+                <div className="px-3 pb-4 space-y-2 bg-white">
                   {lv1.children.map((lv2) => {
                     const isLv2Open = openLv2 === lv2.id;
 
                     return (
                       <div key={lv2.id ?? lv2.name}>
                         <button
-                          onClick={() =>
-                            setOpenLv2(isLv2Open ? null : lv2.id)
-                          }
-                          className="w-full flex justify-between text-sm font-medium py-2"
+                          onClick={() => setOpenLv2(isLv2Open ? null : lv2.id)}
+                          className={`
+              w-full flex justify-between items-center
+              text-sm font-semibold
+              py-2 px-3 rounded-lg
+              ml-4
+              ${isLv2Open ? "bg-gray-100" : "bg-gray-50"}
+            `}
                         >
                           {lv2.name}
                           {lv2.children &&
                             (isLv2Open ? <ChevronDown /> : <ChevronRight />)}
                         </button>
 
-                        {isLv2Open && lv2.children && (
-                          <div className="flex flex-wrap gap-2 mt-2">
-                            {lv2.children.map((lv3) => (
-                              <button
-                                key={lv3.id ?? lv3.name}
-                                className="px-3 py-1.5 text-xs rounded-full bg-gray-100"
-                              >
-                                {lv3.name}
-                              </button>
-                            ))}
-                          </div>
-                        )}
+{isLv2Open && lv2.children && (
+  <div className="flex flex-wrap gap-2 mt-2 ml-8">
+    {lv2.children.map((lv3) => (
+      <button
+        key={lv3.id ?? lv3.name}
+        className="
+          px-3 py-1.5 text-xs
+          rounded-full
+          bg-green-50 text-green-700
+          border border-green-200
+        "
+      >
+        {lv3.name}
+      </button>
+    ))}
+  </div>
+)}
                       </div>
                     );
                   })}
