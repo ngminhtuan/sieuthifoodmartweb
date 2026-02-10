@@ -145,7 +145,7 @@ export default function AboutPage() {
 
           <div className="relative">
             <div className="aspect-square bg-linear-to-br from-green-400 to-emerald-600 rounded-3xl shadow-2xl flex items-center justify-center text-white text-4xl font-bold">
-              <img src={"/companyoverview.jfif"} alt=''/>
+              <img src={"/introduce1.jpg"} alt=''/>
             </div>
             {/* <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-linear-to-r from-orange-400 to-red-500 rounded-3xl -z-10"></div> */}
           </div>

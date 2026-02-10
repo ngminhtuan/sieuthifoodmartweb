@@ -136,7 +136,7 @@ export default function SimpleProductCard({
         {/* Price */}
         <div className="flex items-end justify-center mb-4 mt-auto">
           <span className=" font-bold text-gray-900">
-            {formatVND(price)}VND
+            {formatVND(price)}<span className="text-[10px] font-medium">đ</span>
           </span>
         </div>
       </div>

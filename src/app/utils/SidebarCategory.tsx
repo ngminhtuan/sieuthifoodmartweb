@@ -48,15 +48,16 @@ export default function SidebarCategory({ tree }: any) {
                     <li key={lv2.slug} className="relative group/lv2">
                       {/* LEVEL 2 ITEM */}
                       <div className="flex justify-between items-center px-3 py-2 rounded-lg hover:bg-green-100 cursor-pointer">
+                        
                         {lv2.id ? <Link
                           href={`/san-pham/${lv2.slug}?page=1`}
                           className="block font-medium text-sm"
                         >
-                          {lv2.name}
+                          <span className="text-xl mr-3">{lv2.icon}</span>{lv2.name}
                         </Link> : <div
                           className="font-medium text-sm"
                         >
-                          {lv2.name}
+                          <span className="text-xl mr-3">{lv2.icon}</span>{lv2.name}
                         </div>}
                         {lv2.children && lv2.children?.length > 0 && <span>›</span>}
                       </div>
@@ -67,10 +68,10 @@ export default function SidebarCategory({ tree }: any) {
                           className="
                             absolute top-0 left-full
                             hidden group-hover/lv2:block
-    bg-white shadow-xl rounded-xl p-4
-    min-w-65
-    z-50
-  "
+                          bg-white shadow-xl rounded-xl p-4
+                            min-w-65
+                            z-50
+                            "
                           style={{
                             WebkitFontSmoothing: "antialiased",
                             transform: "translateZ(0)",
@@ -88,7 +89,7 @@ export default function SidebarCategory({ tree }: any) {
                                     transition
                                   "
                                 >
-                                  {lv3.name}
+                                  <span className="text-xl mr-3">{lv3.icon}</span>{lv3.name}
                                 </Link>
                               </li>
                             ))}

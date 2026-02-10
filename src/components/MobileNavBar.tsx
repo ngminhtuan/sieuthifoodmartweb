@@ -19,7 +19,7 @@ export default function MobileNavBar() {
     { id: 'products', label: 'Trang chủ', icon: AiOutlineHome },
     { id: 'category', label: 'Danh mục', icon: BiSolidOffer },
     { id: 'store', label: 'Cửa hàng', icon: IoStorefrontOutline },
-    { id: 'profile', label: 'Cá nhân', icon: FaRegUser }
+    { id: 'profile', label: 'Membership', icon: FaRegUser }
   ];
 
   const handleClick = (itemId: string) => {

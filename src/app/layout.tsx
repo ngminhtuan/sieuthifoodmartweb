@@ -18,11 +18,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Foodmart – Siêu thị thực phẩm tươi sống',
+    default: 'Foodmart – Siêu thị thực phẩm',
     template: '%s | Foodmart',
   },
   description:
-    'Foodmart – Siêu thị thực phẩm tươi sống hàng đầu Việt Nam. Rau củ, thịt cá tươi mỗi ngày, giao nhanh trong ngày.',
+    'Foodmart – Siêu thị thực phẩm hàng đầu Việt Nam. Rau củ, thịt cá tươi mỗi ngày, giao nhanh trong ngày.',
   // metadataBase: new URL('sieuthifoodmart.com'),
   robots: {
     index: true,

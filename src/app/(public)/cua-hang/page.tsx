@@ -1,36 +1,66 @@
 export default function StoresPage() {
   const stores = [
-    {
-      name: 'FM02 Foodmart',
-      address: 'A1 Eratown 01-06 Block A1, Era Town',
-      phone: '028 2218 8999',
-    },
-    {
-      name: 'FM06 Foodmart',
-      address: 'Mizuki 01.05 Block MP3, Mizuki',
-      phone: '028 2218 8999',
-    },
-    {
-      name: 'FM08 Foodmart',
-      address: '107 Nguyễn Văn Linh, Quận 7',
-      phone: '028 2218 8999',
-    },
-    {
-      name: 'FM09 Foodmart',
-      address: 'E04 Block M8, Midtown',
-      phone: '028 2218 8999',
-    },
-    {
-      name: 'FM01 Foodmart',
-      address: 'S203 Chung cư Vinhomes Grand Park, Q9',
-      phone: '',
-    },
-    {
-      name: 'FM05 Foodmart',
-      address: 'EB1-01-02 Block B1, Chung cư The Era Town',
-      phone: '',
-    },
-  ];
+  {
+    name: 'Foodmart Vinhomes Grand Park',
+    address:
+      'S203 chung cư Vinhomes Grand, đường Nguyễn Xiển, Long Thạnh Mỹ, Quận 9'
+  },
+  {
+    name: 'Foodmart Era Town',
+    address:
+      'Tầng G Block A1 Chung cư The Era Town (Đức Khải), đường 15B, Phú Mỹ, Quận 7'
+  },
+  {
+    name: 'Foodmart Đức Khải',
+    address:
+      'EB1-01-02 Block B1 Chung cư The Era Town (Đức Khải), hướng bờ sông, đường 15B, Phú Mỹ, Quận 7'
+  },
+  {
+    name: 'Foodmart Mizuki',
+    address:
+      'MP3-001.05 chung cư Mizuki Flora, đường Nguyễn Văn Linh, xã Bình Hưng, Huyện Bình Chánh'
+  },
+  {
+    name: 'Foodmart Eco Green Saigon',
+    address:
+      'Tầng trệt Block A-SH18, 107 Nguyễn Văn Linh, P. Tân Thuận Tây, Quận 7'
+  },
+  {
+    name: 'Foodmart Phố Đông Village',
+    address:
+      '1145 Nguyễn Thị Định, Phường Cát Lái, Quận 2'
+  },
+  {
+    name: 'Foodmart Midtown',
+    address:
+      'Shophouse E04 Block M8, Chung cư Midtown, Phường Tân Phú, Quận 7'
+  },
+  {
+    name: 'Foodmart Vinhomes Grand Park – S2.01',
+    address:
+      'S201 Chung cư Vinhomes Grand, Đường Nguyễn Xiển, Long Thạnh Mỹ, Quận 9'
+  },
+  {
+    name: 'Foodmart Vinhomes Grand Park – S7.02',
+    address:
+      'S702 Chung cư Vinhomes Grand, Đường Nguyễn Xiển, Long Thạnh Mỹ, Quận 9'
+  },
+  {
+    name: 'Foodmart Q7 Boulevard',
+    address:
+      'Shophouse 27 Block B1, Chung cư Q7 Boulevard, Phường Phú Mỹ, Quận 7'
+  },
+  {
+    name: 'Foodmart Saigon Intela',
+    address:
+      'Shop A06, Tầng 01, Chung cư Saigon Intela, KDC 13E, Ấp 5, Xã Phong Phú, Huyện Bình Chánh'
+  },
+  {
+    name: 'Foodmart Vinhomes Grand Park – S3.05',
+    address:
+      'S.05 Chung cư Vinhomes Grand, Đường Nguyễn Xiển, Long Thạnh Mỹ, Quận 9'
+  }
+];
 
   return (
     <div className=" bg-gray-50 py-10">
@@ -52,12 +82,6 @@ export default function StoresPage() {
               <p className="text-gray-700 mt-1">
                 📍 {store.address}
               </p>
-
-              {store.phone && (
-                <p className="text-gray-600 mt-1">
-                  📞 {store.phone}
-                </p>
-              )}
             </div>
           ))}
         </div>
