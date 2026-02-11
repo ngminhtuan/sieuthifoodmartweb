@@ -16,13 +16,17 @@ interface CategoryNodeProps extends CategoryNode {
   onCategoryClick?: (categoryId: string | number, slug: string) => void;
 }
 
-const CategoryNodeComponent: React.FC<CategoryNodeProps> = ({
+const CategoryNodeComponent: React.FC<
+  CategoryNodeProps & { level?: number; parentIcon?: string }
+> = ({
   id,
   name,
   slug,
   icon,
+  parentIcon,
   children,
-  onCategoryClick
+  onCategoryClick,
+  level = 1,
 }) => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const hasChildren = children && children.length > 0;
@@ -30,41 +34,75 @@ const CategoryNodeComponent: React.FC<CategoryNodeProps> = ({
   const handleClick = (): void => {
     if (hasChildren) {
       setIsExpanded(!isExpanded);
-    } else {
-      // Only navigate if category has an id (leaf category with products)
-      if (id && onCategoryClick) {
-        onCategoryClick(id, slug);
-      }
+    } else if (id && onCategoryClick) {
+      onCategoryClick(id, slug);
     }
   };
+
+  /* ===== STYLE THEO CẤP ===== */
+  const levelStyles: Record<number, string> = {
+    1: "bg-gray-50 font-bold",
+    2: "bg-gray-100 font-semibold",
+    3: "bg-white font-normal",
+  };
+
+  const paddingLeft: Record<number, string> = {
+    1: "pl-4",
+    2: "pl-8",
+    3: "pl-12",
+  };
+
+  const iconSize: Record<number, string> = {
+    1: "text-xl",
+    2: "text-lg",
+    3: "text-base",
+  };
+
+  // 👉 icon ưu tiên icon của chính nó, nếu không có thì lấy icon cha
+  const displayIcon = icon || parentIcon;
 
   return (
     <div className="border-b border-gray-100">
       <div
         onClick={handleClick}
-        className="flex items-center justify-between p-4 active:bg-gray-50 cursor-pointer"
+        className={`
+          flex items-center justify-between py-3 pr-4 cursor-pointer
+          ${levelStyles[level]}
+          ${paddingLeft[level]}
+          active:bg-gray-200
+        `}
       >
         <div className="flex items-center gap-3 flex-1">
-          {icon && <span className="text-2xl">{icon}</span>}
-          <span className="font-medium text-gray-800 text-base">{name}</span>
+          {displayIcon && (
+            <span className={`${iconSize[level]}`}>
+              {displayIcon}
+            </span>
+          )}
+          <span className="text-gray-800 text-sm">
+            {name}
+          </span>
         </div>
+
         {hasChildren && (
           <div className="text-gray-400">
             {isExpanded ? (
-              <ChevronDown className="w-5 h-5" />
+              <ChevronDown className="w-4 h-4" />
             ) : (
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-4 h-4" />
             )}
           </div>
         )}
       </div>
 
+      {/* ===== CHILDREN ===== */}
       {hasChildren && isExpanded && (
-        <div className="bg-gray-50 pl-4">
+        <div>
           {children.map((child, index) => (
             <CategoryNodeComponent
               key={child.id || child.slug || index}
               {...child}
+              level={level + 1}
+              parentIcon={displayIcon}
               onCategoryClick={onCategoryClick}
             />
           ))}
@@ -73,6 +111,7 @@ const CategoryNodeComponent: React.FC<CategoryNodeProps> = ({
     </div>
   );
 };
+
 
 const MobileCategoryMenu: React.FC = () => {
   const { isCategoryOpen, closeCategory } = useUIStore();
