@@ -99,10 +99,10 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-linear-to-br from-gray-50 to-gray-100">
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-green-600 via-emerald-600 to-green-700 text-white">
+      <section className="relative overflow-hidden bg-linear-to-br from-green-600 via-emerald-600 to-green-700 text-white">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full -mr-48 -mt-48"></div>
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full -ml-48 -mb-48"></div>
@@ -117,7 +117,7 @@ export default function AboutPage() {
 
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
               Chào Mừng Đến Với<br />
-              <span className="bg-gradient-to-r from-yellow-300 to-orange-400 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-yellow-300 to-orange-400 bg-clip-text text-transparent">
                 Foodmart
               </span>
             </h1>
@@ -138,11 +138,11 @@ export default function AboutPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="max-w-7xl mx-auto px-4 -mt-16 relative z-20">
+      <section className="max-w-7xl mx-auto p-4 -mt-16 relative z-20">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           {stats.map((stat, idx) => (
             <div key={idx} className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-2">
-              <div className={`w-16 h-16 bg-gradient-to-r ${stat.color} rounded-2xl flex items-center justify-center text-white text-2xl mb-4 mx-auto`}>
+              <div className={`w-16 h-16 bg-linear-to-r ${stat.color} rounded-2xl flex items-center justify-center text-white text-2xl mb-4 mx-auto`}>
                 {stat.icon}
               </div>
               <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2 text-center">
@@ -173,7 +173,7 @@ export default function AboutPage() {
           </div>
 
           <div className="relative">
-            <div className="aspect-square bg-gradient-to-br from-green-400 to-emerald-600 rounded-3xl shadow-2xl overflow-hidden">
+            <div className="aspect-square bg-linear-to-br from-green-400 to-emerald-600 rounded-3xl shadow-2xl overflow-hidden">
               <img src="/introduce1.jpg" alt="Foodmart Store" className="w-full h-full object-cover"/>
             </div>
           </div>
@@ -181,7 +181,7 @@ export default function AboutPage() {
       </section>
 
       {/* Tech Advantages Section */}
-      <section className="bg-gradient-to-br from-gray-100 to-gray-200 py-16 md:py-24">
+      <section className="bg-linear-to-br from-gray-100 to-gray-200 py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <span className="text-green-600 font-bold text-sm uppercase tracking-wide">Công nghệ hiện đại</span>
@@ -196,7 +196,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {techAdvantages.map((advantage, idx) => (
               <div key={idx} className="bg-white rounded-2xl p-8 text-center hover:shadow-xl transition-all border-2 border-gray-100 hover:border-green-500">
-                <div className="w-20 h-20 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full flex items-center justify-center text-white text-3xl mb-6 mx-auto">
+                <div className="w-20 h-20 bg-linear-to-r from-green-600 to-emerald-600 rounded-full flex items-center justify-center text-white text-3xl mb-6 mx-auto">
                   {advantage.icon}
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">{advantage.title}</h3>
@@ -218,8 +218,8 @@ export default function AboutPage() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {coreFeatures.map((feature, idx) => (
-            <div key={idx} className="bg-white rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 group hover:-translate-y-2">
-              <div className={`w-16 h-16 bg-gradient-to-r ${feature.color} rounded-2xl flex items-center justify-center text-white text-3xl mb-6 group-hover:scale-110 transition-transform`}>
+            <div key={idx} className="flex flex-col items-center md:block bg-white rounded-2xl p-6 hover:shadow-2xl transition-all duration-300 group hover:-translate-y-2">
+              <div className={`w-16 h-16 bg-linear-to-r ${feature.color} rounded-2xl flex items-center justify-center text-white text-3xl mb-6 group-hover:scale-110 transition-transform`}>
                 {feature.icon}
               </div>
               <h3 className="text-xl font-bold mb-3 text-gray-900">{feature.title}</h3>
@@ -230,7 +230,7 @@ export default function AboutPage() {
       </section>
 
       {/* Store Network */}
-      <section className="bg-gradient-to-br from-blue-50 to-cyan-50 py-16 md:py-24">
+      <section className="bg-linear-to-br from-blue-50 to-cyan-50 py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <span className="text-blue-600 font-bold text-sm uppercase tracking-wide">Hệ thống cửa hàng</span>
@@ -246,7 +246,7 @@ export default function AboutPage() {
             {storeLocations.map((location, idx) => (
               <div key={idx} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full flex items-center justify-center text-white text-xl">
+                  <div className="w-12 h-12 bg-linear-to-r from-blue-600 to-cyan-600 rounded-full flex items-center justify-center text-white text-xl">
                     <FaMapMarkerAlt />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900">{location.area}</h3>
@@ -279,8 +279,8 @@ export default function AboutPage() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {values.map((value, idx) => (
-            <div key={idx} className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 text-center hover:shadow-xl transition-all border-2 border-gray-100 hover:border-green-500">
-              <div className="w-20 h-20 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full flex items-center justify-center text-white text-3xl mb-6 mx-auto">
+            <div key={idx} className="bg-linear-to-br from-white to-gray-50 rounded-2xl p-8 text-center hover:shadow-xl transition-all border-2 border-gray-100 hover:border-green-500">
+              <div className="w-20 h-20 bg-linear-to-r from-green-600 to-emerald-600 rounded-full flex items-center justify-center text-white text-3xl mb-6 mx-auto">
                 {value.icon}
               </div>
               <h3 className="text-xl font-bold mb-3 text-gray-900">{value.title}</h3>
@@ -291,7 +291,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 text-white py-16 md:py-24">
+      <section className="relative overflow-hidden bg-linear-to-r from-orange-500 via-red-500 to-pink-600 text-white py-16 md:py-24">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full -ml-48 -mt-48"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full -mr-48 -mb-48"></div>
@@ -328,8 +328,8 @@ export default function AboutPage() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 text-center">
-            <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full flex items-center justify-center text-white text-2xl mb-4 mx-auto">
+          <div className="bg-linear-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 text-center">
+            <div className="w-16 h-16 bg-linear-to-r from-blue-600 to-cyan-600 rounded-full flex items-center justify-center text-white text-2xl mb-4 mx-auto">
               <FaPhone />
             </div>
             <h3 className="text-xl font-bold mb-2 text-gray-900">Hotline</h3>
@@ -337,8 +337,8 @@ export default function AboutPage() {
             <a href="tel:02822188999" className="text-blue-600 font-bold text-xl">0879361361</a>
           </div>
 
-          <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 text-center">
-            <div className="w-16 h-16 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full flex items-center justify-center text-white text-2xl mb-4 mx-auto">
+          <div className="bg-linear-to-br from-green-50 to-emerald-50 rounded-2xl p-8 text-center">
+            <div className="w-16 h-16 bg-linear-to-r from-green-600 to-emerald-600 rounded-full flex items-center justify-center text-white text-2xl mb-4 mx-auto">
               <FaEnvelope />
             </div>
             <h3 className="text-xl font-bold mb-2 text-gray-900">Email</h3>
@@ -346,8 +346,8 @@ export default function AboutPage() {
             <a href="mailto:sieuthifoodmart@gmail.com" className="text-green-600 font-bold text-sm">info@sieuthifoodmart.com</a>
           </div>
 
-          <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-8 text-center">
-            <div className="w-16 h-16 bg-gradient-to-r from-orange-600 to-red-600 rounded-full flex items-center justify-center text-white text-2xl mb-4 mx-auto">
+          <div className="bg-linear-to-br from-orange-50 to-red-50 rounded-2xl p-8 text-center">
+            <div className="w-16 h-16 bg-linear-to-r from-orange-600 to-red-600 rounded-full flex items-center justify-center text-white text-2xl mb-4 mx-auto">
               <FaMapMarkerAlt />
             </div>
             <h3 className="text-xl font-bold mb-2 text-gray-900">Trụ Sở</h3>
