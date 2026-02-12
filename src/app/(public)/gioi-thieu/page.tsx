@@ -268,7 +268,7 @@ export default function AboutPage() {
       {/* Core Values */}
       <section className="max-w-7xl mx-auto px-4 py-16 md:py-24">
         <div className="text-center mb-16">
-          <span className="text-green-600 font-bold text-sm uppercase tracking-wide">Giá trị cốt lõi</span>
+          <span className="text-green-600 font-bold text-2xl uppercase tracking-wide">Giá trị cốt lõi</span>
           <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-6 text-gray-900">
             Cam Kết Của Chúng Tôi
           </h2>
@@ -321,7 +321,7 @@ export default function AboutPage() {
       {/* Contact Info */}
       <section className="max-w-7xl mx-auto px-4 py-16 md:py-24">
         <div className="text-center mb-12">
-          <span className="text-green-600 font-bold text-sm uppercase tracking-wide">Kết nối với chúng tôi</span>
+          <span className="text-green-600 font-bold text-2xl uppercase tracking-wide">Kết nối với chúng tôi</span>
           <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-6 text-gray-900">
             Thông Tin Liên Hệ
           </h2>
