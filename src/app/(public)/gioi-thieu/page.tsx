@@ -210,7 +210,7 @@ export default function AboutPage() {
       {/* Product Ecosystem */}
       <section className="max-w-7xl mx-auto px-4 py-16 md:py-24">
         <div className="text-center mb-16">
-          <span className="text-green-600 font-bold text-sm uppercase tracking-wide">Sản phẩm đa dạng</span>
+          <span className="text-green-600 font-bold text-2xl uppercase tracking-wide">Sản phẩm đa dạng</span>
           <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-6 text-gray-900">
             Hệ Sinh Thái "Tươi - Sạch - Tiện"
           </h2>
@@ -233,7 +233,7 @@ export default function AboutPage() {
       <section className="bg-linear-to-br from-blue-50 to-cyan-50 py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <span className="text-blue-600 font-bold text-sm uppercase tracking-wide">Hệ thống cửa hàng</span>
+            <span className="text-blue-600 font-bold text-2xl uppercase tracking-wide">Hệ thống cửa hàng</span>
             <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-6 text-gray-900">
               Mạng Lưới Cửa Hàng Foodmart
             </h2>
