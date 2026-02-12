@@ -160,7 +160,7 @@ export default function AboutPage() {
       <section className="max-w-7xl mx-auto px-4 py-16 md:py-24">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="text-green-600 font-bold text-sm uppercase tracking-wide">Triết lý của chúng tôi</span>
+            <span className="text-green-600 font-bold text-2xl uppercase tracking-wide">Triết lý của chúng tôi</span>
             <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-6 text-gray-900">
               "Nhỏ Nhưng Đủ"
             </h2>
@@ -184,7 +184,7 @@ export default function AboutPage() {
       <section className="bg-linear-to-br from-gray-100 to-gray-200 py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <span className="text-green-600 font-bold text-sm uppercase tracking-wide">Công nghệ hiện đại</span>
+            <span className="text-green-600 font-bold text-2xl uppercase tracking-wide">Công nghệ hiện đại</span>
             <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-6 text-gray-900">
               Hệ Điều Hành Bán Lẻ
             </h2>
@@ -218,7 +218,7 @@ export default function AboutPage() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {coreFeatures.map((feature, idx) => (
-            <div key={idx} className="flex flex-col items-center md:block bg-white rounded-2xl p-6 hover:shadow-2xl transition-all duration-300 group hover:-translate-y-2">
+            <div key={idx} className="flex flex-col items-center bg-white rounded-2xl p-6 hover:shadow-2xl transition-all duration-300 group hover:-translate-y-2">
               <div className={`w-16 h-16 bg-linear-to-r ${feature.color} rounded-2xl flex items-center justify-center text-white text-3xl mb-6 group-hover:scale-110 transition-transform`}>
                 {feature.icon}
               </div>
