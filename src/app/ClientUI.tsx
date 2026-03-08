@@ -8,7 +8,7 @@ export default function ClientUI() {
   const { isCategoryOpen, closeCategory } = useUIStore();
 
   return (
-    <>
+    <div className="z-999">
       {/* Mobile Category Sheet – CHỈ MOBILE */}
       <div className="lg:hidden">
         <MobileCategoryMenu />
@@ -20,8 +20,6 @@ export default function ClientUI() {
           onClick={closeCategory}
         />
       )}
-
-
-    </>
+    </div>
   );
 }

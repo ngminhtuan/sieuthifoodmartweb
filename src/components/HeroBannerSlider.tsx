@@ -6,13 +6,13 @@ import { FaLeaf, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 // Define your slides here
 const slides = [
-  {
-    id: 1,
-    type: 'image' as const,
-    content: {
-      image: "/tetdenthatroi.png"
-    }
-  },
+  // {
+  //   id: 1,
+  //   type: 'image' as const,
+  //   content: {
+  //     image: "/tetdenthatroi.png"
+  //   }
+  // },
 
   {
     id: 2,
@@ -26,7 +26,7 @@ const slides = [
     id: 3,
     type: 'image' as const,
     content: {
-      image: "/slide2.png"
+      image: "https://foodmart-share-api.bosssoft.vn/public/2_mb.png"
     }
   }
 ];
@@ -115,22 +115,74 @@ if (slide.type === 'image') {
     <div
       className="
         relative w-full
-        min-h-105 md:aspect-16/5
-        bg-green-700
+        min-h-[420px]
+        md:aspect-[16/5]
+        bg-gradient-to-r from-red-700 via-red-600 to-red-500
         md:rounded-3xl
         overflow-hidden
-        flex items-center justify-center
+        flex items-center
       "
     >
+      {/* Background image */}
       <Image
         src={slide.content.image}
         alt="slide image"
         fill
         priority
-        className="
-          object-contain
-        "
+        className="object-cover opacity-40"
       />
+
+      {/* Content */}
+      <div className="relative z-10 w-full grid md:grid-cols-2 gap-10 px-8 md:px-16 items-center">
+
+        {/* LEFT TEXT */}
+        <div className="text-white">
+          <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
+            CHUỖI SIÊU THỊ <br />
+            THỰC PHẨM HIỆN ĐẠI
+          </h1>
+
+          <p className="text-white/90 mb-6 max-w-lg">
+            Thông điệp ngắn gọn của chuỗi bán lẻ. 
+            Chuyên cung cấp thực phẩm tươi sống, 
+            chất lượng cao cho mọi gia đình.
+          </p>
+
+          <button className="bg-white text-red-600 font-semibold px-6 py-3 rounded-xl hover:bg-gray-100 transition">
+            XEM NGAY
+          </button>
+        </div>
+
+        {/* RIGHT PRODUCT CARD */}
+        <div className="hidden md:flex justify-center">
+          <div className="bg-white rounded-2xl shadow-xl p-6 w-[260px]">
+
+            <p className="text-gray-500 text-sm mb-2">
+              SẢN PHẨM NỔI BẬT
+            </p>
+
+            <div className="w-full h-28 bg-gray-100 rounded-xl mb-4 flex items-center justify-center">
+              <span className="text-gray-400 text-sm">
+                Product Image
+              </span>
+            </div>
+
+            <div className="text-xl font-bold text-red-600">
+              219.000đ
+            </div>
+
+            <div className="text-gray-400 line-through text-sm mb-4">
+              269.000đ
+            </div>
+
+            <button className="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition">
+              XEM NGAY
+            </button>
+
+          </div>
+        </div>
+
+      </div>
     </div>
   );
 }
@@ -139,7 +191,9 @@ if (slide.type === 'image') {
   };
 
   return (
-    <section className="bg-linear-to-br from-green-700 via-green-600 to-green-800 relative overflow-hidden mb-5">
+     <section className="relative overflow-hidden" style={{
+        background: "linear-gradient(135deg, #c0392b 0%, #e74c3c 45%, #f15a4a 70%, #ff6b5b 100%)"
+      }}>
       <div className="md:max-w-7xl lg:max-w-10/12 mx-auto py-12 md:py-20">
 
         {/* Slider Container - All slides rendered */}

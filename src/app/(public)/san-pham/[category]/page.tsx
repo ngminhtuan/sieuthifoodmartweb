@@ -89,7 +89,7 @@ export default async function CategoryProductsPage({ params, searchParams }: {
   const { page = '1' } = await searchParams;
   const currentPage = Number(page);
 
-  const pages = getPaginationPages(currentPage, listProductByCategoryId.data.totalItems);
+  const pages = getPaginationPages(currentPage, Math.ceil((listProductByCategoryId.data.totalItems/15)));
 
   return (
     <div className="min-h-screen bg-linear-to-br from-gray-50 to-gray-100">
@@ -157,13 +157,13 @@ export default async function CategoryProductsPage({ params, searchParams }: {
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
                   {listProductByCategoryId.data.items.map((product: any) => (
                     <SimpleProductCard key={product.productId}
-                      id={product.productId}
-                      productName={product.productName}
-                      slug={product.slug}
-                      categorySlug={slug}
-                      price={product.price}
-                      unit={product.unit}
-                      image={product.image} />
+                    productId={product.productId}
+                    productName={product.productName}
+                    slug={product.productId}
+                    categorySlug={slug}
+                    price={product.price}
+                    unit={product.unit}
+                    image={product.image} subtitle={''} discountPercent={undefined} />
                   ))}
                 </div>
               </div>

@@ -18,7 +18,7 @@ export default function Footer() {
               />
             </div>
             <p className="text-sm text-gray-400 mb-6">
-              Siêu thị thực phẩm tươi sống hàng đầu Việt Nam
+              Siêu thị thực phẩm
             </p>
 
             {/* Social Media Links */}

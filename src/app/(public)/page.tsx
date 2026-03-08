@@ -6,23 +6,30 @@ import Image from "next/image";
 import {
   FaLeaf
 } from 'react-icons/fa';
-import { SimpleProductGrid } from '../../components/ProductCard';
+import SimpleProductGrid from '@/components/ProductGrid';
 import SidebarCategoryUI from '../utils/SidebarCategoryUI';
 import HeroBannerSlider from "@/components/HeroBannerSlider";
+import BannerAdvertise from "@/components/BannerAdvertise";
+import CategoryGrid from "../utils/CategoriesSection";
+import { dummyDataListCategory } from "../utils/DumDataListCategory";
+import MembershipAndMap from "@/components/MembershipAndMap";
+import FeaturedProducts from "@/components/FeaturedProducts";
 
 export default async function FreshGroceryHome() {
 
   return (
     <div className="min-h-screen bg-linear-to-br from-gray-50 to-gray-100">
+      <BannerAdvertise />
       {/* Hero Section */}
       <HeroBannerSlider />
-      <section className='md:max-w-7xl xl:max-w-full mx-auto flex 2xl:justify-around'>
+      <CategoryGrid categories={dummyDataListCategory} />
+      {/* <section className='md:max-w-7xl xl:max-w-full mx-auto flex 2xl:justify-around'>
         <SidebarCategoryUI />
 
         <SimpleProductGrid />
-      </section>
-
-      
+      </section> */}
+      <SimpleProductGrid />
+      <MembershipAndMap />
     </div>
   );
 }

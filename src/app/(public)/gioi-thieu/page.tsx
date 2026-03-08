@@ -1,5 +1,4 @@
 // app/gioi-thieu/page.tsx
-'use client';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -35,7 +34,7 @@ export default function AboutPage() {
   const coreFeatures = [
     {
       icon: <FaLeaf />,
-      title: '100% Tươi Sạch',
+      title: '100% Tươi',
       description: 'Rau củ quả hữu cơ, thịt cá tươi mới mỗi ngày từ các nhà cung cấp uy tín',
       color: 'from-green-500 to-emerald-600'
     },
@@ -212,7 +211,7 @@ export default function AboutPage() {
         <div className="text-center mb-16">
           <span className="text-green-600 font-bold text-2xl uppercase tracking-wide">Sản phẩm đa dạng</span>
           <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-6 text-gray-900">
-            Hệ Sinh Thái "Tươi - Sạch - Tiện"
+            Hệ Sinh Thái "Tươi - Tiện - Nhỏ nhưng đủ"
           </h2>
         </div>
 
@@ -333,7 +332,7 @@ export default function AboutPage() {
               <FaPhone />
             </div>
             <h3 className="text-xl font-bold mb-2 text-gray-900">Hotline</h3>
-            <p className="text-gray-600 mb-2">Liên hệ ngay</p>
+            {/* <p className="text-gray-600 mb-2">Liên hệ ngay</p> */}
             <a href="tel:02822188999" className="text-blue-600 font-bold text-xl">0879361361</a>
           </div>
 
@@ -342,7 +341,7 @@ export default function AboutPage() {
               <FaEnvelope />
             </div>
             <h3 className="text-xl font-bold mb-2 text-gray-900">Email</h3>
-            <p className="text-gray-600 mb-2">Gửi email cho chúng tôi</p>
+            {/* <p className="text-gray-600 mb-2">Gửi email cho chúng tôi</p> */}
             <a href="mailto:sieuthifoodmart@gmail.com" className="text-green-600 font-bold text-sm">info@sieuthifoodmart.com</a>
           </div>
 
@@ -351,7 +350,7 @@ export default function AboutPage() {
               <FaMapMarkerAlt />
             </div>
             <h3 className="text-xl font-bold mb-2 text-gray-900">Trụ Sở</h3>
-            <p className="text-gray-600 mb-2">Ghé thăm chúng tôi</p>
+            {/* <p className="text-gray-600 mb-2">Ghé thăm chúng tôi</p> */}
             <p className="text-orange-600 font-semibold text-sm">22/4 Đường Tân Phú, Lô M8, Midtown, Q7, TP.HCM</p>
           </div>
         </div>

@@ -10,8 +10,8 @@ export async function fetchAPI(
     ...options,
     headers: {
       "Content-Type": "application/json",
-      // "x-api-key": API_KEY,
-      Authorization: `Bearer ${process.env.API_BEARER_TOKEN}`,
+      "x-api-key": API_KEY,
+      // Authorization: `Bearer ${process.env.API_BEARER_TOKEN}`,
       ...options.headers,
     },
     // 👇 CACHE + ISR

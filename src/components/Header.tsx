@@ -13,7 +13,7 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   return (
-    <header className="bg-white shadow-md lg:sticky top-0 z-999">
+    <header className="bg-white shadow-md lg:sticky top-0 z-50">
       <div className="max-w xl:max-w-10/12 mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
