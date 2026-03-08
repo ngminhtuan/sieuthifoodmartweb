@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CategoryProductsPage({ params, searchParams }: {
   params: Promise<{ category: string }>;
-  searchParams: Promise<{ page?: any}>;
+  searchParams: Promise<{ page?: any }>;
 }) {
 
   const slug = (await params).category;
@@ -40,9 +40,11 @@ export default async function CategoryProductsPage({ params, searchParams }: {
 
   const category = findCategoryBySlug(dummyDataListCategory, slug);
 
-  const listProductByCategoryId = await getProductsByCategory(category?.id, pageNumber)
+  const categoryId = slug === "tat-ca-san-pham" ? '' : category?.id;
 
-  const secondIcon = {"icon": "🛒"}
+  const listProductByCategoryId = await getProductsByCategory(categoryId, pageNumber)
+
+  const secondIcon = { "icon": "🛒" }
 
   //Pagination Logic
   function getPaginationPages(
@@ -89,7 +91,7 @@ export default async function CategoryProductsPage({ params, searchParams }: {
   const { page = '1' } = await searchParams;
   const currentPage = Number(page);
 
-  const pages = getPaginationPages(currentPage, Math.ceil((listProductByCategoryId.data.totalItems/15)));
+  const pages = getPaginationPages(currentPage, Math.ceil((listProductByCategoryId.data.totalItems / 15)));
 
   return (
     <div className="min-h-screen bg-linear-to-br from-gray-50 to-gray-100">
@@ -100,7 +102,7 @@ export default async function CategoryProductsPage({ params, searchParams }: {
           <div className="flex items-center gap-2 text-sm text-gray-600 overflow-x-auto whitespace-nowrap">
             <Link href="/" className="hover:text-green-600">Trang chủ</Link>
             <span>/</span>
-            <span className="text-green-600 font-semibold">{category?.name}</span>
+            <span className="text-green-600 font-semibold">{category?.name ?? 'Tất cả sản phẩm'}</span>
           </div>
         </div>
       </div>
@@ -124,7 +126,7 @@ export default async function CategoryProductsPage({ params, searchParams }: {
             {/* Text Content */}
             <div className="flex-1 text-center md:text-left">
               <h1 className="text-3xl md:text-5xl font-bold text-white mb-3">
-                {category?.name}
+                {category?.name ?? 'Tất cả sản phẩm'}
               </h1>
               <p className="text-lg md:text-xl text-white/95 mb-2">
                 Đảm bảo chất lượng tốt nhất
@@ -157,13 +159,13 @@ export default async function CategoryProductsPage({ params, searchParams }: {
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
                   {listProductByCategoryId.data.items.map((product: any) => (
                     <SimpleProductCard key={product.productId}
-                    productId={product.productId}
-                    productName={product.productName}
-                    slug={product.productId}
-                    categorySlug={slug}
-                    price={product.price}
-                    unit={product.unit}
-                    image={product.image} subtitle={''} discountPercent={undefined} />
+                      productId={product.productId}
+                      productName={product.productName}
+                      slug={product.productId}
+                      categorySlug={slug}
+                      price={product.price}
+                      unit={product.unit}
+                      image={product.image} subtitle={''} discountPercent={undefined} />
                   ))}
                 </div>
               </div>
@@ -199,7 +201,7 @@ export default async function CategoryProductsPage({ params, searchParams }: {
                           ${p === currentPage
                           ? 'bg-linear-to-r from-green-600 to-emerald-600 text-white'
                           : 'border border-gray-300 hover:bg-gray-50'
-                          }`}
+                        }`}
                     >
                       {p}
                     </Link>

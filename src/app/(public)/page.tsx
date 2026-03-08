@@ -11,18 +11,18 @@ import SidebarCategoryUI from '../utils/SidebarCategoryUI';
 import HeroBannerSlider from "@/components/HeroBannerSlider";
 import BannerAdvertise from "@/components/BannerAdvertise";
 import CategoryGrid from "../utils/CategoriesSection";
-import { dummyDataListCategory } from "../utils/DumDataListCategory";
+import { dummyDataListCategory, dummyDataListCategoryHome } from "../utils/DumDataListCategory";
 import MembershipAndMap from "@/components/MembershipAndMap";
 import FeaturedProducts from "@/components/FeaturedProducts";
 
 export default async function FreshGroceryHome() {
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-gray-50 to-gray-100">
-      <BannerAdvertise />
+    <div className="min-h-screen bg-white">
+      {/* <BannerAdvertise /> */}
       {/* Hero Section */}
       <HeroBannerSlider />
-      <CategoryGrid categories={dummyDataListCategory} />
+      <CategoryGrid categories={dummyDataListCategoryHome} />
       {/* <section className='md:max-w-7xl xl:max-w-full mx-auto flex 2xl:justify-around'>
         <SidebarCategoryUI />
 

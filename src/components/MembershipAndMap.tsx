@@ -1,4 +1,5 @@
 import StoreMap from "@/app/utils/GooglemapStores";
+import Link from "next/link";
 
 export default function MembershipAndMap() {
   return (
@@ -19,9 +20,12 @@ export default function MembershipAndMap() {
           </ul>
         </div>
 
-        <button className="bg-gray-700 text-white px-6 py-3 rounded-lg w-fit">
+        <a href='https://thanhvien.sieuthifoodmart.com/'
+          className="bg-gray-700 text-white px-6 py-3 rounded-lg w-fit"
+          target="_blank"
+          rel="noopener noreferrer">
           ĐĂNG KÝ NGAY
-        </button>
+        </a>
 
       </div>
 
@@ -42,9 +46,9 @@ export default function MembershipAndMap() {
           />
         </div>
 
-        <button className="mt-4 bg-gray-700 text-white px-5 py-2 rounded-lg w-fit">
+        <Link href='/cua-hang' className="mt-4 bg-gray-700 text-white px-5 py-2 rounded-lg w-fit">
           XEM TẤT CẢ CỬA HÀNG
-        </button>
+        </Link>
 
       </div>
 
