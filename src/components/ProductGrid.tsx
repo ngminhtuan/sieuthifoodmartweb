@@ -11,7 +11,7 @@ export default async function SimpleProductGrid() {
 
         <div className="mb-10">
           <h1 className="text-4xl font-bold text-gray-900">
-            Sản phẩm nổi bật / bán chạy
+            Sản Phẩm Nổi Bật
           </h1>
         </div>
 
