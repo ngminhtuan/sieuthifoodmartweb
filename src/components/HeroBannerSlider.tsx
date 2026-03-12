@@ -37,14 +37,14 @@ const slides = [
     id: 2,
     type: "image" as const,
     content: {
-      image: "https://foodmart-share-api.bosssoft.vn/public/2_mb.png",
+      image: "https://foodmart-share-api.bosssoft.vn/public/1.png",
     },
   },
   {
     id: 3,
     type: "image" as const,
     content: {
-      image: "/https://foodmart-share-api.bosssoft.vn/public/3_mb.png",
+      image: "https://foodmart-share-api.bosssoft.vn/public/2_mb.png",
     },
   },
 ];
@@ -53,25 +53,25 @@ export default function HeroBannerSlider() {
   const renderSlideContent = (slide: (typeof slides)[0]) => {
     if (slide.type === "original") {
       return (
-        <div className="grid md:grid-cols-2 gap-8 items-center px-4 pb-10">
+        <div className="grid md:grid-cols-2 gap-8 items-center px-4">
 
           {/* TEXT */}
           <div className="text-white">
-          <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
-            CHUỖI SIÊU THỊ <br />
-            THỰC PHẨM HIỆN ĐẠI
-          </h1>
+            <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
+              CHUỖI SIÊU THỊ <br />
+              THỰC PHẨM HIỆN ĐẠI
+            </h1>
 
-          <p className="text-white/90 mb-6 max-w-lg">
-            Thông điệp ngắn gọn của chuỗi bán lẻ. 
-            Chuyên cung cấp thực phẩm tươi sống, 
-            chất lượng cao cho mọi gia đình.
-          </p>
+            <p className="text-white/90 mb-6 max-w-lg">
+              Thông điệp ngắn gọn của chuỗi bán lẻ.
+              Chuyên cung cấp thực phẩm tươi sống,
+              chất lượng cao cho mọi gia đình.
+            </p>
 
-          <Link href={'/san-pham/tat-ca-san-pham?page=1'} className="bg-white text-red-600 font-semibold px-6 py-3 rounded-xl hover:bg-gray-100 transition">
-            XEM NGAY
-          </Link>
-        </div>
+            <Link href={'/san-pham/tat-ca-san-pham?page=1'} className="bg-white text-red-600 font-semibold px-6 py-3 rounded-xl hover:bg-gray-100 transition">
+              XEM NGAY
+            </Link>
+          </div>
 
           {/* IMAGE */}
           <SimpleProductCard
@@ -89,14 +89,25 @@ export default function HeroBannerSlider() {
       );
     }
 
-    if (slide.type === "image") {
+    if (slide.type === 'image') {
       return (
-        <div className="relative w-full aspect-16/5 rounded-3xl overflow-hidden">
+        <div
+          className="
+        relative w-full
+        min-h-105 md:aspect-16/5
+        md:rounded-3xl
+        overflow-hidden
+        flex items-center justify-center
+      "
+        >
           <Image
             src={slide.content.image}
-            alt="slide"
+            alt="slide image"
             fill
-            className="object-cover"
+            priority
+            className="
+          object-contain
+        "
           />
         </div>
       );
@@ -113,7 +124,7 @@ export default function HeroBannerSlider() {
       <div className="absolute -top-20 -left-20 w-96 h-96 bg-red-400 opacity-20 blur-3xl rounded-full"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-400 opacity-20 blur-3xl rounded-full"></div>
 
-      <div className="relative md:max-w-7xl lg:max-w-[85%] mx-auto pt-20">
+      <div className="relative md:max-w-7xl lg:max-w-[85%] mx-auto py-15">
 
         <Swiper
           modules={[Autoplay, Pagination]}
