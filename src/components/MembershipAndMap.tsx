@@ -9,7 +9,7 @@ export default function MembershipAndMap() {
       <div className="bg-gray-100 rounded-2xl p-8 flex flex-col justify-between">
 
         <div>
-          <h3 className="text-xl font-bold mb-4">
+          <h3 className="text-xl font-bold mb-4 dark:text-black">
             ĐĂNG KÝ THẺ THÀNH VIÊN FOODMART
           </h3>
 
@@ -32,7 +32,7 @@ export default function MembershipAndMap() {
       {/* Map */}
       <div className="bg-gray-100 rounded-2xl p-6 flex flex-col">
 
-        <h3 className="text-lg font-semibold mb-4">
+        <h3 className="text-lg font-semibold mb-4 dark:text-black">
           HỆ THỐNG CỬA HÀNG
         </h3>
 
