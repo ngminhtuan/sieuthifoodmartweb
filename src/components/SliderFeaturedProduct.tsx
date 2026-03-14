@@ -19,7 +19,7 @@ export default function ProductSlider({ products }: any) {
       </button>
 
       {/* RIGHT ARROW */}
-      <button className="swiper-button-next-custom hidden lg:block absolute -right-15 top-1/2 -translate-y-1/2 z-10 bg-white shadow rounded-full p-3">
+      <button className="swiper-button-next-custom block absolute -right-3 lg:-right-15 top-1/2 -translate-y-1/2 z-10 bg-white shadow rounded-full p-3">
         <ChevronRight size={20} />
       </button>
 

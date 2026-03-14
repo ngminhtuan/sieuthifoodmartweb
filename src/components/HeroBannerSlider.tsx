@@ -1,36 +1,26 @@
 "use client";
 
-import Image from "next/image";
+import { useState } from "react";
+import Link from "next/link";
 import { FaLeaf } from "react-icons/fa";
+import Image from "next/image";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
+
 import SimpleProductCard from "./ProductCard";
-import Link from "next/link";
+
+/* ----------------------------- SLIDES DATA ----------------------------- */
 
 const slides = [
   {
     id: 1,
     type: "original" as const,
     content: {
-      title: {
-        line1: "An toàn",
-        line2: "tiện lợi",
-        highlight: "tươi ngon",
-        line3: "chất lượng",
-      },
-      description:
-        "Chuyên cung cấp thực phẩm tươi và chất lượng nhất\nĐảm bảo an toàn và sức khỏe của khách hàng.",
-      buttonText: "Mua ngay",
       buttonLink: "/san-pham/tat-ca-san-pham?page=1",
-      image: "/bannerfood.png",
-      badge: {
-        icon: FaLeaf,
-        text: "100% Tươi sạch",
-      },
     },
   },
   {
@@ -44,89 +34,135 @@ const slides = [
     id: 3,
     type: "image" as const,
     content: {
-      image: "https://foodmart-share-api.bosssoft.vn/public/2_mb.png",
+      image: "https://foodmart-share-api.bosssoft.vn/public/3.png",
     },
   },
 ];
 
-export default function HeroBannerSlider() {
-  const renderSlideContent = (slide: (typeof slides)[0]) => {
-    if (slide.type === "original") {
-      return (
-        <div className="grid md:grid-cols-2 gap-8 items-center px-4">
+/* ----------------------------- UTIL ----------------------------- */
 
-          {/* TEXT */}
-          <div className="text-white">
-            <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
-              CHUỖI SIÊU THỊ <br />
-              THỰC PHẨM HIỆN ĐẠI
-            </h1>
+function getMobileImage(url: string) {
+  const extIndex = url.lastIndexOf(".");
+  if (extIndex === -1) return url;
+  return url.slice(0, extIndex) + "_mb" + url.slice(extIndex);
+}
 
-            <p className="text-white/90 mb-6 max-w-lg">
-              Thông điệp ngắn gọn của chuỗi bán lẻ.
-              Chuyên cung cấp thực phẩm tươi sống,
-              chất lượng cao cho mọi gia đình.
-            </p>
+/* ----------------------------- IMAGE COMPONENT ----------------------------- */
 
-            <Link href={'/san-pham/tat-ca-san-pham?page=1'} className="bg-white text-red-600 font-semibold px-6 py-3 rounded-xl hover:bg-gray-100 transition">
-              XEM NGAY
-            </Link>
-          </div>
+function BannerImage({ desktop }: { desktop: string }) {
+  const mobile = getMobileImage(desktop);
 
-          {/* IMAGE */}
-          <SimpleProductCard
-            productId={'54441'}
-            categorySlug={'thit-dong-lanh'}
-            productName={'(Premium) Sườn Cốt Lết'}
-            subtitle={''}
-            slug={'54441'}
-            price={'209000'}
-            unit={''}
-            image={''}
-            discountPercent={''}
-          />
-        </div>
-      );
-    }
+  const [desktopSrc, setDesktopSrc] = useState(desktop);
+  const [mobileSrc, setMobileSrc] = useState(mobile);
+  const [hasError, setHasError] = useState(false);
 
-    if (slide.type === 'image') {
-      return (
-        <div
-          className="
-        relative w-full
-        min-h-105 md:aspect-16/5
-        md:rounded-3xl
-        overflow-hidden
-        flex items-center justify-center
-      "
-        >
-          <Image
-            src={slide.content.image}
-            alt="slide image"
-            fill
-            priority
-            className="
-          object-contain
-        "
-          />
-        </div>
-      );
+  const handleError = () => {
+    if (!hasError) {
+      setHasError(true);
+      setDesktopSrc("https://foodmart-share-api.bosssoft.vn/public/2.png");
+      setMobileSrc("https://foodmart-share-api.bosssoft.vn/public/2_mb.png");
     }
   };
 
   return (
+    <>
+      {/* Desktop image */}
+      <Image
+        src={desktopSrc}
+        alt="banner"
+        fill
+        className="hidden md:block object-contain"
+        onError={handleError}
+      />
+
+      <Image
+        src={mobileSrc}
+        alt="banner"
+        fill
+        className="block md:hidden object-contain"
+        onError={handleError}
+      />
+    </>
+  );
+}
+
+/* ----------------------------- ORIGINAL SLIDE ----------------------------- */
+
+function OriginalSlide() {
+  return (
+    <div className="grid md:grid-cols-2 gap-8 items-center px-4 md:pt-20">
+
+      {/* TEXT */}
+      <div className="text-white">
+        <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
+          CHUỖI SIÊU THỊ <br />
+          THỰC PHẨM HIỆN ĐẠI
+        </h1>
+
+        <p className="text-white/90 mb-6 max-w-lg">
+          Chuyên cung cấp thực phẩm
+          tươi sống, chất lượng cao cho mọi gia đình.
+        </p>
+
+        <Link
+          href="/san-pham/tat-ca-san-pham?page=1"
+          className="bg-white text-red-600 font-semibold px-6 py-3 rounded-xl hover:bg-gray-100 transition"
+        >
+          XEM NGAY
+        </Link>
+      </div>
+
+      {/* PRODUCT */}
+      <SimpleProductCard
+        productId={"54441"}
+        categorySlug={"thit-dong-lanh"}
+        productName={"(Premium) Sườn Cốt Lết"}
+        subtitle={""}
+        slug={"54441"}
+        price={"209000"}
+        unit={""}
+        image={""}
+        discountPercent={""}
+      />
+    </div>
+  );
+}
+
+/* ----------------------------- IMAGE SLIDE ----------------------------- */
+
+function ImageSlide({ image }: { image: string }) {
+  return (
+    <div
+      className="
+      relative w-full
+      h-140 lg:h-120
+      md:rounded-2xl
+      overflow-hidden
+      flex items-center justify-center
+    "
+    >
+      <BannerImage desktop={image} />
+    </div>
+  );
+}
+
+/* ----------------------------- MAIN COMPONENT ----------------------------- */
+
+export default function HeroBannerSlider() {
+  return (
     <section className="relative overflow-hidden">
 
-      {/* background */}
+      {/* Background */}
       <div className="absolute inset-0 bg-linear-to-br from-red-900 via-red-700 to-rose-600"></div>
 
-      {/* blur decorations */}
+      {/* Decorations */}
       <div className="absolute -top-20 -left-20 w-96 h-96 bg-red-400 opacity-20 blur-3xl rounded-full"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-400 opacity-20 blur-3xl rounded-full"></div>
 
-      <div className="relative md:max-w-7xl lg:max-w-[85%] mx-auto py-15">
+      <div className="relative md:max-w-7xl lg:max-w-[85%] mx-auto py-10 pb-5">
 
         <Swiper
+          className="hero-swiper"
           modules={[Autoplay, Pagination]}
           autoplay={{
             delay: 1000000,
@@ -139,26 +175,43 @@ export default function HeroBannerSlider() {
         >
           {slides.map((slide) => (
             <SwiperSlide key={slide.id}>
-              {renderSlideContent(slide)}
+
+              {slide.type === "original" && <OriginalSlide />}
+
+              {slide.type === "image" && (
+                <ImageSlide image={slide.content.image} />
+              )}
+
             </SwiperSlide>
           ))}
         </Swiper>
 
       </div>
 
-      {/* Pagination custom style */}
+      {/* Pagination style */}
       <style jsx global>{`
-        .swiper-pagination-bullet {
-          background: #d1d5db;
-          opacity: 1;
-        }
+.hero-swiper {
+  padding-bottom: 60px;
+}
 
-        .swiper-pagination-bullet-active {
-          background: white;
-          width: 22px;
-          border-radius: 6px;
-        }
-      `}</style>
+.hero-swiper .swiper-pagination {
+  bottom: 0 !important;
+}
+
+.swiper-pagination-bullet {
+  background: #e5e7eb;
+  opacity: 1;
+  width: 8px;
+  height: 8px;
+  transition: all 0.25s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background: white;
+  width: 26px;
+  border-radius: 12px;
+}
+`}</style>
 
     </section>
   );
