@@ -64,19 +64,19 @@ function OriginalSlide() {
           XEM NGAY
         </Link>
       </div>
-
-      <SimpleProductCard
-        productId={"54441"}
-        categorySlug={"thit-dong-lanh"}
-        productName={"(Premium) Sườn Cốt Lết"}
-        subtitle={""}
-        slug={"54441"}
-        price={"209000"}
-        unit={""}
-        image={""}
-        discountPercent={""}
-      />
-
+      <div className="py-6">
+          <SimpleProductCard
+            productId={"54441"}
+            categorySlug={"thit-dong-lanh"}
+            productName={"(Premium) Sườn Cốt Lết"}
+            subtitle={""}
+            slug={"54441"}
+            price={"209000"}
+            unit={""}
+            image={""}
+            discountPercent={""}
+          />
+      </div>
     </div>
   );
 }
@@ -85,7 +85,7 @@ function OriginalSlide() {
 
 function ImageSlide({ image }: { image: string }) {
   return (
-    <div className="relative w-full h-140 lg:h-120 md:rounded-2xl">
+    <div className="relative w-full h-135">
       <Image
         src={image}
         alt="banner"
@@ -102,67 +102,63 @@ function ImageSlide({ image }: { image: string }) {
 
 export default function HeroBannerSlider() {
 
-  const [desktopSlides, setDesktopSlides] = useState<typeof slides>([]);
-  const [mobileSlides, setMobileSlides] = useState<typeof slides>([]);
+  const [desktopSlides, setDesktopSlides] = useState<typeof slides>(slides);
+  const [mobileSlides, setMobileSlides] = useState<typeof slides>(slides);
 
   useEffect(() => {
 
     async function validateSlides() {
 
-      const desktop: typeof slides = [];
-      const mobile: typeof slides = [];
+      const results = await Promise.all(
+        slides.map(async (slide) => {
 
-      for (const slide of slides) {
+          if (slide.type === "original") {
+            return {
+              desktop: slide,
+              mobile: slide
+            };
+          }
 
-        if (slide.type === "original") {
-          desktop.push(slide);
-          mobile.push(slide);
-          continue;
-        }
+          const mobileUrl = getMobileImage(slide.image);
 
-        const desktopExists = await checkImage(slide.image);
+          const [desktopExists, mobileExists] = await Promise.all([
+            checkImage(slide.image),
+            checkImage(mobileUrl)
+          ]);
 
-        if (desktopExists) {
-          desktop.push(slide);
-        }
+          return {
+            desktop: desktopExists ? slide : null,
+            mobile: mobileExists ? { ...slide, image: mobileUrl } : null
+          };
+        })
+      );
 
-        const mobileUrl = getMobileImage(slide.image);
-        const mobileExists = await checkImage(mobileUrl);
-
-        if (mobileExists) {
-          mobile.push({
-            ...slide,
-            image: mobileUrl
-          });
-        }
-      }
-
-      setDesktopSlides(desktop);
-      setMobileSlides(mobile);
+      setDesktopSlides(results.map(r => r.desktop).filter(Boolean) as typeof slides);
+      setMobileSlides(results.map(r => r.mobile).filter(Boolean) as typeof slides);
     }
 
     validateSlides();
 
   }, []);
 
-  if (!desktopSlides.length) return null;
-
   return (
     <section className="relative overflow-visible">
 
       <div className="absolute inset-0 bg-linear-to-br from-red-900 via-red-700 to-rose-600"></div>
 
-      <div className="relative md:max-w-7xl lg:max-w-[85%] mx-auto py-10">
+      <div className="relative md:max-w-7xl lg:max-w-[85%] mx-auto py-10 pb-5">
 
-        {/* DESKTOP SLIDER */}
+        {/* DESKTOP */}
 
         <div className="hidden md:block">
+
           <Swiper
             modules={[Autoplay, Pagination]}
             autoplay={{ delay: 10000 }}
             pagination={{ clickable: true }}
             loop
           >
+
             {desktopSlides.map((slide) => (
               <SwiperSlide key={slide.id}>
                 {slide.type === "original"
@@ -171,18 +167,22 @@ export default function HeroBannerSlider() {
                 }
               </SwiperSlide>
             ))}
+
           </Swiper>
+
         </div>
 
-        {/* MOBILE SLIDER */}
+        {/* MOBILE */}
 
         <div className="block md:hidden">
+
           <Swiper
             modules={[Autoplay, Pagination]}
             autoplay={{ delay: 1000000 }}
             pagination={{ clickable: true }}
             loop
           >
+
             {mobileSlides.map((slide) => (
               <SwiperSlide key={slide.id}>
                 {slide.type === "original"
@@ -191,13 +191,16 @@ export default function HeroBannerSlider() {
                 }
               </SwiperSlide>
             ))}
+
           </Swiper>
+
         </div>
 
       </div>
 
       <style jsx global>{`
-  .swiper-pagination {
+
+.swiper-pagination {
   bottom: 0px !important;
 }
 
@@ -213,6 +216,7 @@ export default function HeroBannerSlider() {
   width: 26px;
   border-radius: 12px;
 }
+
 `}</style>
 
     </section>
