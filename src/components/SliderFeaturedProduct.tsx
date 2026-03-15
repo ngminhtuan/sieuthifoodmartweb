@@ -14,7 +14,7 @@ export default function ProductSlider({ products }: any) {
     <div className="relative">
 
       {/* LEFT ARROW */}
-      <button className="swiper-button-prev-custom hidden lg:block absolute -left-15 top-1/2 -translate-y-1/2 z-10 bg-white shadow rounded-full p-3">
+      <button className="swiper-button-prev-custom hidden lg:block absolute -left-15 top-1/2 -translate-y-1/2 z-10 bg-white shadow rounded-full p-3 dark:text-black">
         <ChevronLeft size={20} />
       </button>
 
