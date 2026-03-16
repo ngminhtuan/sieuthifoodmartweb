@@ -50,7 +50,10 @@ function OriginalSlide() {
 
       <div className="text-white">
         <h1 className="text-3xl md:text-5xl font-bold mb-4">
-          CHUỖI SIÊU THỊ <br /> THỰC PHẨM HIỆN ĐẠI
+          CHUỖI SIÊU THỊ
+        </h1>
+        <h1 className="text-3xl md:text-5xl font-bold mb-4">
+          THỰC PHẨM HIỆN ĐẠI
         </h1>
 
         <p className="text-white/90 mb-6 max-w-lg">
@@ -146,7 +149,7 @@ export default function HeroBannerSlider() {
 
       <div className="absolute inset-0 bg-linear-to-br from-red-900 via-red-700 to-rose-600"></div>
 
-      <div className="relative md:max-w-7xl lg:max-w-[85%] mx-auto py-1">
+      <div className="relative md:max-w-7xl lg:max-w-6xl mx-auto py-1">
 
         {/* DESKTOP */}
 
