@@ -49,7 +49,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
         <Header />
-        <main className="flex-1 bg-linear-to-br from-gray-50 to-gray-100">
+        <main className="flex-1 bg-white">
           {children}
         </main>
         <MobileNavBar />

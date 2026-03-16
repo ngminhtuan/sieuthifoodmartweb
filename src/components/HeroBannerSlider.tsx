@@ -146,7 +146,7 @@ export default function HeroBannerSlider() {
 
       <div className="absolute inset-0 bg-linear-to-br from-red-900 via-red-700 to-rose-600"></div>
 
-      <div className="relative md:max-w-7xl lg:max-w-[85%] mx-auto py-10 pb-5">
+      <div className="relative md:max-w-7xl lg:max-w-[85%] mx-auto py-1">
 
         {/* DESKTOP */}
 

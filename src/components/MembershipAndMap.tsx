@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function MembershipAndMap() {
   return (
-    <section className="max-w-7xl mx-auto px-4 mt-12 grid md:grid-cols-2 gap-6">
+    <section className="max-w-7xl mx-auto px-4 mt-12 grid md:grid-cols-2 gap-6 mb-10">
 
       {/* Membership */}
       <div className="bg-gray-100 rounded-2xl p-8 flex flex-col justify-between">
