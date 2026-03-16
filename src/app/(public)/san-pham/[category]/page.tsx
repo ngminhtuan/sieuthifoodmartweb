@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getCategories, getProductsByCategory } from '@/services/category.service';
+import { getCategories, getProductsByCategory, getProductsByCategorySlug } from '@/services/category.service';
 import SimpleProductCard from '@/components/ProductCard';
 import SidebarCategoryUI from '@/app/utils/SidebarCategoryUI';
 import { findCategoryBySlug } from '@/app/utils/category.helper';
@@ -42,7 +42,7 @@ export default async function CategoryProductsPage({ params, searchParams }: {
 
   const categoryId = slug === "tat-ca-san-pham" ? '' : category?.id;
 
-  const listProductByCategoryId = await getProductsByCategory(categoryId, pageNumber)
+  const listProductByCategoryId = slug === "tat-ca-san-pham" ? await getProductsByCategory('', pageNumber) : await getProductsByCategorySlug(slug, pageNumber)
 
   const secondIcon = { "icon": "🛒" }
 

@@ -4,15 +4,20 @@ export function findCategoryBySlug(
   tree: CategoryNode[],
   slug: string
 ): CategoryNode | null {
-  for (const node of tree) {
-    if (node.slug === slug && node.id) {
+
+  const stack = [...tree];
+
+  while (stack.length) {
+    const node = stack.pop()!;
+
+    if (node.slug === slug) {
       return node;
     }
 
     if (node.children?.length) {
-      const found = findCategoryBySlug(node.children, slug);
-      if (found) return found;
+      stack.push(...node.children);
     }
   }
+
   return null;
 }

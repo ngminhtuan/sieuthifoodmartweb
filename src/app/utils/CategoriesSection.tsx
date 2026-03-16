@@ -7,7 +7,6 @@ type Props = {
 }
 
 export default function CategoryGrid({ categories }: Props) {
-
   return (
     <section className="max-w-7xl mx-auto px-4 py-12 md:py-20">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
@@ -16,7 +15,8 @@ export default function CategoryGrid({ categories }: Props) {
 
       <div className=" grid grid-cols-2 pb-10 md:grid-cols-4 gap-4 md:gap-6">
         {categories.slice(0, 8).map((cat, idx) => (
-          <div
+          <Link
+          href={`/san-pham/${cat.slug}?page=1`}
             key={idx}
             className={`
                 bg-linear-to-br from-gray-50 to-gray-100
@@ -36,7 +36,7 @@ export default function CategoryGrid({ categories }: Props) {
             <h3 className="font-bold text-lg mb-2 text-gray-900">
               {cat.name}
             </h3>
-          </div>
+          </Link>
         ))}
       </div>
       <Link

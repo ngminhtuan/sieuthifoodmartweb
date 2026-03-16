@@ -8,6 +8,10 @@ export async function getProductsByCategory(category: string | number | null | u
   return fetchAPI(`/SearchProduct?categoryId=${category}&pageSize=15&pageNumber=${pageNumber}`);
 }
 
+export async function getProductsByCategorySlug(category: string | number | null | undefined, pageNumber: string | number) {
+  return fetchAPI(`/SearchProductByCategorySlug?slug=${category}&pageSize=15&pageNumber=${pageNumber}`);
+}
+
 export async function getProductDetail(productId: string) {
   return fetchAPI(`/get-product-detail?productId=${productId}`);
 }
